@@ -1,6 +1,7 @@
 import  Express  from "express";
 import dotenv from "dotenv"
 import apiRoutes from "./routes/index"
+import { connectDB } from "./database";
 //import { connectDB } from "./database"
 
 //CREAR INSTANCIA DE EXPRESS
@@ -10,7 +11,7 @@ const app = Express()
 dotenv.config() //traer la configuracion de env
 
 //CONEXION BASE DE DATOS
-
+connectDB()
 
 //PUERTO EN EL QUE SE EJECUTA EL API
 const port = process.env.PORT || 3200
