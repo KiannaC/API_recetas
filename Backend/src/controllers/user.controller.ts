@@ -25,17 +25,17 @@ export const createUser = async(req:Express.Request, res:Express.Response) => {
     }
 }
 
-export const updateUser = async(req:Express.Request, res:Express.Response) => {
+export const updateUser = async (req:Express.Request, res:Express.Response) => {
     try {
-        
         let {dataToUpdate, _id} = req.body
-        const updatedData = await userModel.findByIdAndUpdate(dataToUpdate, _id)
+        const updatedData = await userModel.findByIdAndUpdate(_id, dataToUpdate)
         console.log(dataToUpdate);
         
-        return res.status(200).json({msg: "Usuario Actualizado", updatedData})
-
+        return res.status(200).json({msg: "Usuario Actualizado"})
     } catch (error) {
-        return res.status(400).json({msg : "Ha ocurrido un error", error})
+        console.log(error);
+        
+        return res.status(400).json({msg : "Ha ocurrido un error", error}) 
     }
 }
 
