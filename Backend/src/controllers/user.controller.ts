@@ -29,7 +29,7 @@ export const updateUser = async(req:Express.Request, res:Express.Response) => {
     try {
         
         let {dataToUpdate, _id} = req.body
-        const updatedData = await userModel.findByIdAndUpdate(_id, dataToUpdate)
+        const updatedData = await userModel.findByIdAndUpdate(dataToUpdate, _id)
         console.log(dataToUpdate);
         
         return res.status(200).json({msg: "Usuario Actualizado", updatedData})
